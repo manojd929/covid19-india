@@ -24,7 +24,7 @@ class App extends React.Component {
                 </Box>
                 <CountrySummary />
                 <Box className={styles.heading}>
-                    <Typography variant="h4" align="center" color="textPrimary">States</Typography>
+                    <Typography variant="h4" align="center" color="textPrimary">State Stats</Typography>
                 </Box>
                 <Box className={styles.selectComponent}>
                     <Select
@@ -44,6 +44,9 @@ class App extends React.Component {
                 <StateSummary
                     selectedState={selectedState}
                 />
+                <Box className={styles.heading}>
+                    <Typography variant="h4" align="center" color="textPrimary">State Timeseries</Typography>
+                </Box>
                 <StateTimeline
                     selectedState={selectedState}
                 />

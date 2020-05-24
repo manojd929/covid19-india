@@ -1,4 +1,4 @@
-import React, { useEffect,  useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Typography } from '@material-ui/core'
 
 import { fetchStateSummary } from '../../data/api'
@@ -12,7 +12,7 @@ const StateSummary = ({ selectedState }) => {
 
     useEffect(() => {
         setLoading(true)
-        async function fetchData() {
+        async function fetchData () {
             const result = await fetchStateSummary(selectedState)
             setData(result)
             setLoading(false)
@@ -28,7 +28,11 @@ const StateSummary = ({ selectedState }) => {
 
     return (
         <Box className={styles.container}>
-            <Typography variant="h6" color="textPrimary">Total: {data[0].Total}</Typography>
+            <Box>
+                <Typography variant="h6" color="textSecondary">Total: {data[0].Total}</Typography>
+                <Typography variant="h6" color="textSecondary">Recovery Rate: {data[0].RecoveryRate}%</Typography>
+                <Typography variant="h6" color="textSecondary">Death Rate: {data[0].DeathRate}%</Typography>
+            </Box>
             <BarGraph
                 data={data}
             />

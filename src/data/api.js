@@ -37,6 +37,8 @@ export const fetchStateSummary = async (state = 'Karnataka') => {
         const { data: { data } } = await axios(API_URL, axiosConfig)
         let result = [{
             Name: state,
+            RecoveryRate: ((data[0].cured/data[0].total) * 100).toFixed(2),
+            DeathRate: ((data[0].death/data[0].total) * 100).toFixed(2),
             Active: data[0].confirmed,
             Recovered: data[0].cured,
             Death: data[0].death,
