@@ -9,3 +9,6 @@ To start this project
 
 > npm install
 > npm start
+
+### Screenshot
+![App](./screenshot.png)

@@ -1,25 +1,38 @@
 import React, { useEffect,  useState } from 'react'
-import styles from './StateSummary.module.css'
-import BarGraph from './BarGraph'
+import { Box, Typography } from '@material-ui/core'
+
 import { fetchStateSummary } from '../../data/api'
+import BarGraph from './BarGraph'
+import Loader from '../Loader/Loader'
+import styles from './StateSummary.module.css'
 
 const StateSummary = ({ selectedState }) => {
-    const [data, setData] = useState(selectedState)
+    const [data, setData] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        setLoading(true)
         async function fetchData() {
-            const result = await fetchStateSummary()
+            const result = await fetchStateSummary(selectedState)
             setData(result)
+            setLoading(false)
         }
         fetchData()
     }, [selectedState])
 
+    if (loading) {
+        return (
+            <Loader />
+        )
+    }
+
     return (
-        <div className={styles.container}>
+        <Box className={styles.container}>
+            <Typography variant="h6" color="textPrimary">Total: {data[0].Total}</Typography>
             <BarGraph
                 data={data}
             />
-        </div>
+        </Box>
     )
 }
 

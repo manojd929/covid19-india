@@ -1,9 +1,13 @@
 .container {
-    margin: 10px 5%;
-    background-color: rgba(250, 250, 250, 0.5);
+    display: flex;
+    justify-content: center;
     width: 90%;
 }
 
-.card  {
-    margin: 0 3% !important;
+.cardcontainer {
+    margin: 12px 0px !important;
+}
+
+.card {
+    margin-right: 15px !important;
 }

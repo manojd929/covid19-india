@@ -1,5 +1,5 @@
 import React from 'react'
-import { Select, MenuItem } from '@material-ui/core';
+import { Select, MenuItem, Box, Typography } from '@material-ui/core';
 
 import { CountrySummary, StateSummary, StateTimeline } from './components'
 import statesList from './data/statesList'
@@ -18,30 +18,36 @@ class App extends React.Component {
     render () {
         const { selectedState } = this.state
         return (
-            <div className={styles.container}>
+            <Box className={styles.container}>
+                <Box className={styles.heading}>
+                    <Typography variant="h4" align="center" color="textPrimary">India Covid-19 Tracker</Typography>
+                </Box>
                 <CountrySummary />
-                <div className={styles.selectComponent}>
-                <Select
-                    onChange={this.handleStateChange}
-                    value={selectedState}
-                >
-                    {statesList.map((stateName, index) => (
-                        <MenuItem
-                            key={index}
-                            value={stateName}
-                        >
-                            {stateName}
-                        </MenuItem>
-                    ))}
-                </Select>
-                </div>
+                <Box className={styles.heading}>
+                    <Typography variant="h4" align="center" color="textPrimary">States</Typography>
+                </Box>
+                <Box className={styles.selectComponent}>
+                    <Select
+                        onChange={this.handleStateChange}
+                        value={selectedState}
+                    >
+                        {statesList.map((stateName, index) => (
+                            <MenuItem
+                                key={index}
+                                value={stateName}
+                            >
+                                {stateName}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </Box>
                 <StateSummary
                     selectedState={selectedState}
                 />
                 <StateTimeline
                     selectedState={selectedState}
                 />
-            </div>
+            </Box>
         )
     }
 }
