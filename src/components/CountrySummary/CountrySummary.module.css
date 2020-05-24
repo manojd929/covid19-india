@@ -1,0 +1,9 @@
+.container {
+    margin: 10px 5%;
+    background-color: rgba(250, 250, 250, 0.5);
+    width: 90%;
+}
+
+.card  {
+    margin: 0 3% !important;
+}

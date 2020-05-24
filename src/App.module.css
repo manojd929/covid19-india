@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 5%;
+}
+
+.selectComponent {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
